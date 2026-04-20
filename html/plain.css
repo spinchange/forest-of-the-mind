@@ -1,0 +1,310 @@
+/* Forest of the Mind — Plain+ v1.0
+   Accent: technical (#67a) — this is a catalog, not a manifesto. */
+
+:root {
+  --ink: #1a1a1a;
+  --ink-light: #555;
+  --ink-faint: #999;
+  --surface: #fdfdfc;
+  --rule: #d4d0cb;
+  --accent: #67a;
+  --code-bg: #f4f3f1;
+  --highlight-bg: #fef9f0;
+
+  --font-body: "Charter", "Bitstream Charter", "Iowan Old Style",
+    "Palatino Linotype", "Palatino", "Georgia", "Cambria", serif;
+  --font-heading: -apple-system, "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "JetBrains Mono", "Consolas", monospace;
+
+  --step--1: clamp(0.80rem, 0.78rem + 0.1vw, 0.89rem);
+  --step-0:  clamp(1.00rem, 0.97rem + 0.15vw, 1.06rem);
+  --step-1:  clamp(1.20rem, 1.14rem + 0.3vw, 1.35rem);
+  --step-2:  clamp(1.44rem, 1.34rem + 0.5vw, 1.69rem);
+  --step-3:  clamp(1.73rem, 1.57rem + 0.8vw, 2.11rem);
+  --step-4:  clamp(2.07rem, 1.80rem + 1.35vw, 2.64rem);
+
+  --space: 1.6rem;
+  --measure: 42em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e6e3;
+    --ink-light: #aaa;
+    --ink-faint: #777;
+    --surface: #1a1a19;
+    --rule: #333;
+    --accent: #89b;
+    --code-bg: #242422;
+    --highlight-bg: #2a2520;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  padding: calc(var(--space) * 2) var(--space);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 10;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--step-4);
+  letter-spacing: -0.025em;
+  margin: 0 0 var(--space) 0;
+}
+
+h2 {
+  font-size: var(--step-2);
+  letter-spacing: -0.01em;
+  margin: calc(var(--space) * 3) 0 calc(var(--space) * 0.5) 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: var(--step-1);
+  letter-spacing: -0.01em;
+  margin: calc(var(--space) * 2) 0 calc(var(--space) * 0.25) 0;
+}
+
+h4 {
+  font-size: var(--step-0);
+  margin: var(--space) 0 calc(var(--space) * 0.25) 0;
+}
+
+p { margin: 0 0 var(--space) 0; }
+
+.lede {
+  font-size: var(--step-1);
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+.caption {
+  font-family: var(--font-heading);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.15em;
+}
+
+a:hover { text-decoration-color: var(--accent); }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  padding: 0.05em 0.35em;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  padding: var(--space);
+  overflow-x: auto;
+  margin: 0 0 var(--space) 0;
+  line-height: 1.5;
+}
+
+pre code { background: none; border: none; padding: 0; }
+
+blockquote {
+  margin: 0 0 var(--space) 0;
+  padding: 0 0 0 var(--space);
+  border-left: 2px solid var(--rule);
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: calc(var(--space) * 2) 0;
+}
+
+ul, ol {
+  margin: 0 0 var(--space) 0;
+  padding-left: 1.5em;
+}
+
+li { margin-bottom: 0.4rem; }
+li > ul, li > ol { margin-top: 0.4rem; margin-bottom: 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 var(--space) 0;
+  font-size: var(--step-0);
+}
+
+th {
+  font-family: var(--font-heading);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-align: left;
+  padding: 0.5em 0.75em;
+  border-bottom: 2px solid var(--ink);
+}
+
+td {
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+/* Species entries — the catalog's atom */
+.species {
+  margin: 0 0 calc(var(--space) * 1.5) 0;
+  padding-left: var(--space);
+  border-left: 1px solid var(--rule);
+}
+
+.species .binomial {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 600;
+  font-size: var(--step-1);
+  color: var(--ink);
+  margin: 0 0 0.2rem 0;
+  display: block;
+}
+
+.species .gloss {
+  font-family: var(--font-heading);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin: 0 0 0.6rem 0;
+}
+
+.species .descr { margin: 0 0 0.6rem 0; }
+
+.species .kin {
+  font-size: var(--step--1);
+  color: var(--ink-light);
+  font-family: var(--font-heading);
+}
+
+.species .kin strong {
+  color: var(--ink-faint);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 0.5em;
+}
+
+/* Genus header block */
+.genus-header {
+  margin-bottom: calc(var(--space) * 2);
+}
+
+.genus-header .genus-name {
+  font-family: var(--font-body);
+  font-style: italic;
+}
+
+/* Frontmatter block — YANP-style, rendered as muted pre */
+.frontmatter {
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  padding: var(--space);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-light);
+  margin: 0 0 calc(var(--space) * 2) 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Navigation */
+nav.top {
+  font-family: var(--font-heading);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin-bottom: calc(var(--space) * 2);
+}
+
+nav.top a, nav.top span {
+  color: var(--ink-faint);
+  text-decoration-color: transparent;
+  margin-right: 1.2em;
+}
+
+nav.top span { color: var(--ink); }
+
+nav.top a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--accent);
+}
+
+nav.top .sep { margin-right: 1.2em; }
+
+footer.colophon {
+  margin-top: calc(var(--space) * 3);
+  padding-top: var(--space);
+  border-top: 1px solid var(--rule);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  font-family: var(--font-heading);
+}
+
+/* Genus table on index */
+.genus-table td.binomial-cell {
+  font-style: italic;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+/* Notice block */
+.notice {
+  background: var(--code-bg);
+  border-left: 2px solid var(--ink-faint);
+  padding: var(--space);
+  margin: 0 0 var(--space) 0;
+}
+
+
