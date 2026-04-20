@@ -1723,8 +1723,8 @@ def html_colophon() -> str:
 # ---------------------------------------------------------------------------
 
 def main():
-    root_md = Path("/home/claude/forest/md")
-    root_html = Path("/home/claude/forest/html")
+    root_md = Path(__file__).parent / "md"
+    root_html = Path(__file__).parent / "docs"
     (root_md / "genus").mkdir(parents=True, exist_ok=True)
     (root_html / "genus").mkdir(parents=True, exist_ok=True)
 
